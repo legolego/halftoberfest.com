@@ -1,0 +1,7 @@
+# Live leaderboard scores are created on the web server. Never commit or overwrite them.
+scores.txt
+
+# Windows / macOS clutter
+Thumbs.db
+desktop.ini
+.DS_Store

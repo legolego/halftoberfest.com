@@ -1,0 +1,1286 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<meta name="description" content="Halftoberfest commemorates the legendary events of the Flint River flood of 1986.">
+
+<meta property="og:title" content="Halftoberfest">
+<meta property="og:description" content="Commemorating Courage Since 1986">
+<meta property="og:image" content="https://halftoberfest.com/Crest_Clear.png">
+<meta property="og:type" content="website">
+
+<title>Halftoberfest | The Legend of 1986</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: "Georgia", serif;
+    background: #f4f1ea;
+    color: #2c2c2c;
+}
+
+header {
+    background: linear-gradient(to right, #1e3c5a, #2a5d84);
+    color: white;
+    text-align: center;
+    padding: 35px 20px 2px 20px; /* Reduced height */
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.2rem; /* Slightly smaller */
+    letter-spacing: 1.5px;
+}
+
+header p {
+    font-style: italic;
+    margin-top: 6px;
+    font-size: 1rem;
+}
+
+.crest {
+    text-align: center;   /* centers inline images */
+    margin: 10px 0;
+}
+
+.crest img {
+    width: 100px;         /* control size here */
+    max-width: 100%;      /* responsive safety */
+    height: auto;         /* keeps proportions correct */
+    display: inline-block;
+}
+
+.section {
+    max-width: 1000px;
+    margin: 60px auto;
+    padding: 0 20px;
+}
+
+.story {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    align-items: center;
+}
+
+.story img {
+    max-width: 450px;
+    width: 100%;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+}
+
+.story-text {
+    flex: 1;
+    min-width: 300px;
+}
+
+.story-text h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #1e3c5a;
+}
+
+footer {
+    background: #1e3c5a;
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    margin-top: 60px;
+}
+
+.badge {
+    background: #c7a23f;
+    color: white;
+    padding: 10px 20px;
+    display: inline-block;
+    border-radius: 30px;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+/* ---- Strike of '86 game ---- */
+.game-section h2 {
+    text-align: center;
+    color: #1e3c5a;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.game-intro {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 24px auto;
+    font-size: 1.1rem;
+}
+
+.game-wrap {
+    position: relative;
+    aspect-ratio: 16 / 9;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    background: #1d2b26;
+}
+
+#toeGame {
+    display: block;
+    width: 100%;
+    height: 100%;
+    touch-action: none;
+    cursor: crosshair;
+    outline: none;
+}
+
+.game-controls {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 12px;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+.game-controls button {
+    font-family: inherit;
+    font-size: 0.9rem;
+    background: #1e3c5a;
+    color: white;
+    border: 0;
+    border-radius: 30px;
+    padding: 8px 18px;
+    cursor: pointer;
+}
+
+.game-controls button:hover {
+    background: #2a5d84;
+}
+
+.lb-form {
+    position: absolute;
+    left: 50%;
+    top: 58%;
+    transform: translateX(-50%);
+    width: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+.lb-form[hidden] {
+    display: none;
+}
+
+.lb-form input {
+    font-family: "Georgia", serif;
+    font-size: 1.4rem;
+    font-weight: bold;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    text-align: center;
+    width: 5.2em;
+    padding: 6px 4px 6px 10px;
+    border-radius: 8px;
+    border: 2px solid #c7a23f;
+    background: #f4f1ea;
+    color: #1e3c5a;
+}
+
+.lb-form button {
+    font-family: inherit;
+    font-size: 1rem;
+    font-weight: bold;
+    border: 0;
+    border-radius: 30px;
+    padding: 9px 18px;
+    cursor: pointer;
+    background: #c7a23f;
+    color: white;
+}
+
+.lb-form button:disabled {
+    opacity: 0.6;
+    cursor: default;
+}
+
+.lb-form .lb-skip {
+    background: transparent;
+    color: #dfe7ee;
+    font-weight: normal;
+    text-decoration: underline;
+    padding: 9px 8px;
+}
+
+.lb-form-msg {
+    flex-basis: 100%;
+    text-align: center;
+    color: #ffb199;
+    font-size: 0.95rem;
+    min-height: 1.2em;
+    margin: 0;
+}
+
+.lb-form-title {
+    display: none;
+}
+
+@media (max-width: 600px) {
+    .lb-form {
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        width: auto;
+        transform: none;
+        align-content: center;
+        gap: 6px;
+        padding: 8px;
+        background: #0f1e2d;
+    }
+    .lb-form-title {
+        display: block;
+        flex-basis: 100%;
+        margin: 0 0 4px 0;
+        text-align: center;
+        color: #ffd54a;
+        font-weight: bold;
+        font-size: 1rem;
+        line-height: 1.3;
+    }
+    .lb-form-title span {
+        display: block;
+        color: white;
+        font-size: 0.9rem;
+        font-weight: normal;
+    }
+    .lb-form input {
+        font-size: 1.1rem;
+        width: 4.6em;
+        padding: 4px 2px 4px 8px;
+    }
+    .lb-form button {
+        padding: 8px 14px;
+        font-size: 0.95rem;
+    }
+    .lb-form .lb-skip {
+        padding: 8px 6px;
+    }
+    .lb-form-msg {
+        font-size: 0.85rem;
+        min-height: 1em;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Halftoberfest</h1>
+    <p>Commemorating Courage Since 1986</p>
+
+    
+    <div class="crest">
+        <img src="Crest_Clear.png"  alt="Halftober crest" loading="lazy">
+    </div>
+</header>
+
+<section class="section">
+    <div class="story">
+        <img src="catfish2.jpg" alt="The Legendary Catfish of the Flint River" loading="lazy">
+        <div class="story-text">
+            <h2>The Great Flood of the Flint River</h2>
+            <p>
+                In the summer of 1986, the Flint River rose beyond its banks in Clio, Michigan.
+                Torrential rain transformed quiet streets into rushing waterways. Amid the chaos,
+                a young boy named Adam made a decision that would define his legacy.
+            </p>
+            <p>
+                Seeing his sister trapped by the rising waters, Adam fought through the flood
+                to reach her. He carried her to safety — but as he stepped through the swirling current,
+                a monstrous catfish struck.
+            </p>
+            <p>
+                In a flash of teeth and river water, the fish bit off half of Adam’s toe.
+                Though injured, Adam never faltered. His sister was saved.
+            </p>
+            <div class="badge">Bravery. Sacrifice. Halftoberfest.</div>
+        </div>
+    </div>
+</section>
+
+<section class="section game-section" id="game">
+    <h2>Strike of '86</h2>
+    <p class="game-intro">
+        You are the catfish. Adam is wading through the flood. You know what must be done.
+    </p>
+    <div class="game-wrap">
+        <canvas id="toeGame" tabindex="0" aria-label="Strike of '86: play as the Flint River catfish and bite Adam's toe"></canvas>
+        <form class="lb-form" id="lbForm" hidden autocomplete="off">
+            <p class="lb-form-title" id="lbFormTitle"></p>
+            <input id="lbInitials" maxlength="3" placeholder="AAA" aria-label="Your 3 initials" autocapitalize="characters" spellcheck="false">
+            <button type="submit" id="lbSave">Save score</button>
+            <button type="button" class="lb-skip" id="lbSkip">Skip</button>
+            <p class="lb-form-msg" id="lbFormMsg"></p>
+        </form>
+    </div>
+    <div class="game-controls">
+        <span>Swim: mouse, drag or arrow keys &middot; Bite: click, tap or space</span>
+        <button type="button" id="toeGameMute">Sound: on</button>
+    </div>
+</section>
+
+<section class="section">
+    <h2 style="text-align:center; color:#1e3c5a;">The Celebration</h2>
+    <p style="text-align:center; max-width:800px; margin:20px auto; font-size:1.1rem;">
+        Each year, we gather to honor courage in the face of adversity.
+        Halftoberfest commemorates resilience, family, and the unforgettable
+        events of 1986. With food, fellowship, and storytelling, we celebrate
+        the legend of the Flint River and the hero who stood against its depths.
+    </p>
+</section>
+
+<footer>
+    © Halftoberfest Society | Established in Honor of 1986
+</footer>
+
+
+<script>
+/* Strike of '86 — play as the Flint River catfish */
+(function () {
+    var cv = document.getElementById('toeGame');
+    if (!cv) return;
+    var ctx = cv.getContext('2d');
+    var W = 800, H = 450, WATER = 110, ROUND = 30;
+
+    function resize() {
+        var dpr = Math.min(window.devicePixelRatio || 1, 2);
+        cv.width = W * dpr;
+        cv.height = H * dpr;
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    resize();
+    window.addEventListener('resize', resize);
+
+    var store = {
+        get: function (k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+        set: function (k, v) { try { localStorage.setItem(k, v); } catch (e) {} }
+    };
+    var best = parseInt(store.get('htf_best'), 10) || 0;
+    var muted = store.get('htf_mute') === '1';
+    var newBest = false;
+
+    function rnd(a, b) { return a + Math.random() * (b - a); }
+    function clamp(v, a, b) { return v < a ? a : v > b ? b : v; }
+    function pick(a) { return a[Math.floor(Math.random() * a.length)]; }
+
+    var state = 'title', stateT = 0, t = 0, shake = 0;
+    var score = 0, timeLeft = ROUND, combo = 0, fish, foot;
+    var parts = [], texts = [];
+    var target = { x: 300, y: 300 };
+    var keys = {};
+    var usingKeys = false;
+    var touchMode = false;
+    var aimSide = 1;
+
+    var rain = [];
+    for (var i = 0; i < 70; i++) rain.push({ x: rnd(0, W), y: rnd(-20, WATER), sp: rnd(350, 500), len: rnd(8, 16) });
+    var houses = [[8, 72, 46], [100, 56, 62], [178, 88, 40], [292, 62, 56], [470, 92, 48], [575, 52, 60]];
+    var bike = { x: 120, dir: 1 }, mower = { x: 670, dir: 1 }, clippings = [], spray = [];
+    var weeds = [];
+    for (i = 0; i < 14; i++) weeds.push({ x: rnd(10, W - 10), h: rnd(25, 60), ph: rnd(0, 6) });
+
+    /* ---------- audio ---------- */
+    var ac = null;
+    function initAudio() {
+        if (ac || muted) return;
+        try { ac = new (window.AudioContext || window.webkitAudioContext)(); } catch (e) {}
+    }
+    function tone(type, f0, f1, dur, vol, delay) {
+        var n = ac.currentTime + (delay || 0);
+        var o = ac.createOscillator(), g = ac.createGain();
+        o.type = type;
+        o.frequency.setValueAtTime(f0, n);
+        o.frequency.exponentialRampToValueAtTime(f1, n + dur);
+        g.gain.setValueAtTime(vol, n);
+        g.gain.exponentialRampToValueAtTime(0.001, n + dur);
+        o.connect(g); g.connect(ac.destination);
+        o.start(n); o.stop(n + dur + 0.02);
+    }
+    function sfx(type) {
+        if (muted || !ac) return;
+        if (ac.state === 'suspended') ac.resume();
+        if (type === 'chomp') { tone('square', 340, 60, 0.14, 0.16); tone('triangle', 900, 300, 0.08, 0.08, 0.05); }
+        else if (type === 'gold') { tone('square', 340, 60, 0.14, 0.16); tone('triangle', 660, 660, 0.08, 0.1, 0.08); tone('triangle', 990, 990, 0.12, 0.1, 0.16); }
+        else if (type === 'swish') tone('sine', 520, 180, 0.1, 0.05);
+        else if (type === 'nope') tone('triangle', 500, 950, 0.1, 0.06);
+        else if (type === 'end') { tone('triangle', 520, 520, 0.12, 0.1); tone('triangle', 390, 390, 0.12, 0.1, 0.14); tone('triangle', 260, 130, 0.4, 0.1, 0.28); }
+    }
+    var muteBtn = document.getElementById('toeGameMute');
+    function syncMute() { if (muteBtn) muteBtn.textContent = 'Sound: ' + (muted ? 'off' : 'on'); }
+    syncMute();
+    if (muteBtn) muteBtn.addEventListener('click', function () {
+        muted = !muted;
+        store.set('htf_mute', muted ? '1' : '0');
+        if (!muted) initAudio();
+        syncMute();
+    });
+
+    /* ---------- game objects ---------- */
+    function reset() {
+        score = 0; timeLeft = ROUND; combo = 0; newBest = false;
+        fish = { x: 160, y: 320, vx: 0, vy: 0, face: 1, lunge: 0, cool: 0, bit: false, mouth: 0 };
+        parts = []; texts = [];
+        newFoot(true);
+    }
+
+    function newFoot(first) {
+        foot = {
+            x: rnd(200, W - 140), y: -60, ty: rnd(WATER + 90, H - 70), tx: 0,
+            dir: Math.random() < 0.5 ? 1 : -1, state: 'enter', wait: 0, dodge: 0, nerv: 0.6, pendingDodge: 0,
+            gold: !first && score >= 2 && Math.random() < 0.22, chewed: false
+        };
+        foot.tx = foot.x;
+    }
+
+    function toePos() { return { x: foot.x + foot.dir * 44, y: foot.y + 2 }; }
+    function mouthPos() { return { x: fish.x + fish.face * 62, y: fish.y + 8 }; }
+
+    function pickTx() { foot.tx = clamp(foot.x + rnd(-260, 260), 90, W - 90); }
+
+    function dodge() {
+        var away = Math.sign(foot.x - fish.x) || 1;
+        if ((away > 0 && foot.x > W - 200) || (away < 0 && foot.x < 200)) away = -away;
+        foot.tx = clamp(foot.x + away * rnd(130, 200), 90, W - 90);
+        foot.ty = clamp(foot.y - rnd(15, 55), WATER + 60, H - 60);
+        foot.dodge = 0.32;
+        splashAt(foot.x, WATER, 6);
+        addText(foot.x, foot.y - 60, pick(['Nope!', 'Ha!', 'Not today!', 'Eek!', 'Nice try!']), '#ffffff', 1);
+        sfx('nope');
+    }
+
+    function addText(x, y, txt, col, scale) { texts.push({ x: x, y: y, txt: txt, col: col, life: 1, scale: scale || 1 }); }
+
+    function splashAt(x, y, n) {
+        for (var k = 0; k < n; k++) parts.push({ x: x + rnd(-20, 20), y: y, vx: rnd(-120, 120), vy: rnd(-260, -80), life: rnd(0.4, 0.8), max: 0.8, type: 'drop', r: rnd(2, 4) });
+    }
+
+    function bubble(p) { return { x: p.x, y: p.y, vx: rnd(-10, 10), vy: rnd(-60, -30), life: rnd(0.8, 1.6), max: 1.6, type: 'bubble', r: rnd(1.5, 4) }; }
+
+    function lunge() {
+        if (fish.cool > 0) return;
+        if (toeAtHead()) {
+            // the toe is right at the fish's head: that's a bite
+            fish.lunge = 0.15; fish.cool = 0.3; fish.vx *= 0.3; fish.vy *= 0.3;
+            sfx('swish');
+            bite();
+            return;
+        }
+        if (!usingKeys && Math.abs(target.x - fish.x) > 8) {
+            // turn toward the pointer first, so the mouth is on the correct side before lunging
+            fish.face = Math.sign(target.x - fish.x);
+            aimSide = fish.face;
+        }
+        var m = mouthPos();
+        var dx = target.x - m.x, dy = target.y - m.y, d = Math.hypot(dx, dy);
+        if (usingKeys || d < 12) { dx = fish.face; dy = 0; d = 1; }
+        // the lunge is sized to carry the mouth all the way to the pointer (or tap)
+        var power = clamp(d / 0.17, 650, touchMode ? 2600 : 1800);
+        fish.vx = dx / d * power; fish.vy = dy / d * power;
+        fish.lunge = 0.26; fish.cool = 0.38; fish.bit = false;
+        sfx('swish');
+        var tp = toePos();
+        if (foot.state === 'wade' && Math.hypot(m.x - tp.x, m.y - tp.y) < BITE_R) { bite(); return; }
+        if (foot.state === 'wade' && foot.dodge <= 0 && Math.hypot(m.x - tp.x, m.y - tp.y) < 190) {
+            var chance = Math.min(0.28, 0.05 + score * 0.018) + (foot.gold ? 0.15 : 0);
+            // the foot needs a moment to react, so a quick, well-aimed bite still lands
+            if (Math.random() < chance) foot.pendingDodge = 0.15;
+        }
+    }
+
+    var BITE_R = 46;
+    // is the toe touching the fish's head (from just behind the eye to the tip of the mouth)?
+    function toeAtHead() {
+        if (foot.state !== 'wade') return false;
+        var ax = fish.x - fish.face * 15, ay = fish.y + 4, m = mouthPos(), tp = toePos();
+        var vx = m.x - ax, vy = m.y - ay, wx = tp.x - ax, wy = tp.y - ay;
+        var u = clamp((wx * vx + wy * vy) / (vx * vx + vy * vy), 0, 1);
+        return Math.hypot(wx - vx * u, wy - vy * u) < 40;
+    }
+    function bite() {
+        fish.bit = true;
+        combo++;
+        var mult = combo >= 6 ? 3 : combo >= 3 ? 2 : 1;
+        var pts = (foot.gold ? 3 : 1) * mult;
+        score += pts;
+        timeLeft += 0.5;
+        var tp = toePos();
+        addText(tp.x, tp.y - 70, pick(['CHOMP!', 'OUCH!', 'YEOWCH!', 'CRUNCH!', 'MY TOE!', 'NOT AGAIN!']), '#ffcf6b', 1.5);
+        addText(tp.x, tp.y - 30, '+' + pts + (mult > 1 ? '  x' + mult : '') + '  +0.5s', foot.gold ? '#ffd54a' : '#ffffff', 1);
+        for (var k = 0; k < 10; k++) parts.push({ x: tp.x, y: tp.y, vx: rnd(-160, 160), vy: rnd(-160, 160), life: rnd(0.3, 0.6), max: 0.6, type: 'star', r: rnd(2, 4), gold: foot.gold });
+        sfx(foot.gold ? 'gold' : 'chomp');
+        foot.chewed = true;
+        foot.state = 'yank';
+        splashAt(foot.x, WATER, 14);
+        shake = 0.25;
+    }
+
+    function updateFish(dt, playing) {
+        fish.cool -= dt;
+        if (fish.lunge > 0) {
+            fish.lunge -= dt;
+            if (!fish.bit && foot.state === 'wade') {
+                // gentle homing: bend the lunge toward a toe that's close and in front
+                var hm = mouthPos(), ht = toePos(), hx = ht.x - hm.x, hy = ht.y - hm.y, hd = Math.hypot(hx, hy);
+                var hs = Math.hypot(fish.vx, fish.vy);
+                if (hd < 170 && hd > 1 && hs > 1 && (hx * fish.vx + hy * fish.vy) > 0) {
+                    var hk = Math.min(1, dt * 9);
+                    fish.vx += (hx / hd * hs - fish.vx) * hk;
+                    fish.vy += (hy / hd * hs - fish.vy) * hk;
+                }
+            }
+            var damp = Math.pow(0.03, dt);
+            fish.vx *= damp; fish.vy *= damp;
+            if (fish.lunge <= 0) { fish.vx *= 0.25; fish.vy *= 0.25; }
+            if (fish.lunge <= 0 && !fish.bit && playing) {
+                if (combo >= 3) addText(fish.x, fish.y - 40, 'combo lost', 'rgba(255,255,255,0.8)', 0.8);
+                combo = 0;
+            }
+        } else {
+            var kx = (keys.ArrowRight || keys.d ? 1 : 0) - (keys.ArrowLeft || keys.a ? 1 : 0);
+            var ky = (keys.ArrowDown || keys.s ? 1 : 0) - (keys.ArrowUp || keys.w ? 1 : 0);
+            if (kx || ky) { target.x = fish.x + kx * 140; target.y = fish.y + ky * 140; }
+            var gx = target.x, gy = target.y;
+            if (!usingKeys && playing) {
+                // steer so the fish's mouth, not its middle, ends up on the pointer
+                if (Math.abs(target.x - fish.x) > 30) aimSide = Math.sign(target.x - fish.x);
+                gx = clamp(target.x - aimSide * 62, 66, W - 66);
+                gy = target.y - 8;
+            }
+            var dx = gx - fish.x, dy = gy - fish.y, d = Math.hypot(dx, dy);
+            var sp = Math.min(d * 3.2, touchMode ? 400 : 260);
+            var tvx = d > 1 ? dx / d * sp : 0, tvy = d > 1 ? dy / d * sp : 0;
+            var k = Math.min(1, dt * 5);
+            fish.vx += (tvx - fish.vx) * k; fish.vy += (tvy - fish.vy) * k;
+            if (Math.abs(fish.vx) > 18) fish.face = Math.sign(fish.vx);
+            if (!usingKeys && playing && Math.abs(fish.vx) < 60) fish.face = aimSide;
+        }
+        var m0 = mouthPos();
+        fish.x = clamp(fish.x + fish.vx * dt, 66, W - 66);
+        fish.y = clamp(fish.y + fish.vy * dt, WATER + 40, H - 32);
+        if (fish.lunge > 0 && !fish.bit && foot.state === 'wade') {
+            // check the whole path the mouth travelled this frame, so fast lunges can't skip past the toe
+            var m1 = mouthPos(), tp = toePos();
+            for (var st = 0; st <= 4; st++) {
+                var f = st / 4, mx = m0.x + (m1.x - m0.x) * f, my = m0.y + (m1.y - m0.y) * f;
+                if (Math.hypot(mx - tp.x, my - tp.y) < BITE_R) { bite(); break; }
+            }
+        }
+        fish.mouth += ((fish.lunge > 0 ? 1 : 0) - fish.mouth) * Math.min(1, dt * 18);
+        if (Math.random() < dt * 2.5) parts.push(bubble(mouthPos()));
+    }
+
+    function updateFoot(dt) {
+        var lvl = Math.min(score, 25);
+        if (foot.state === 'enter') {
+            foot.y += (foot.ty - foot.y) * Math.min(1, dt * 5);
+            if (foot.y > WATER - 4 && foot.y < WATER + 12 && !foot.splashed) { foot.splashed = true; splashAt(foot.x, WATER, 8); }
+            if (Math.abs(foot.y - foot.ty) < 5) { foot.state = 'wade'; pickTx(); }
+        } else if (foot.state === 'wade') {
+            foot.dodge -= dt;
+            var sp = (foot.dodge > 0 ? 560 : 70 + lvl * 12) * (foot.gold ? 1.4 : 1);
+            var dx = foot.tx - foot.x, step = sp * dt;
+            if (Math.abs(dx) <= step) {
+                foot.x = foot.tx;
+                if (foot.dodge <= 0 && Math.random() < dt * (1.8 + lvl * 0.15)) pickTx();
+            } else foot.x += Math.sign(dx) * step;
+            foot.y += (foot.ty - foot.y) * Math.min(1, dt * (foot.dodge > 0 ? 10 : 2));
+            if (Math.random() < dt * 0.6) foot.ty = rnd(WATER + 80, H - 60);
+            foot.nerv -= dt;
+            if (foot.pendingDodge > 0) {
+                foot.pendingDodge -= dt;
+                if (foot.pendingDodge <= 0 && !fish.bit) dodge();
+            }
+            var tp = toePos();
+            if (state === 'play' && foot.nerv <= 0 && foot.dodge <= 0 && Math.hypot(fish.x - tp.x, fish.y - tp.y) < 110) {
+                foot.nerv = 0.6;
+                if (Math.random() < Math.min(0.2, 0.03 + lvl * 0.012) + (foot.gold ? 0.08 : 0)) dodge();
+            }
+        } else if (foot.state === 'yank') {
+            foot.y -= 950 * dt;
+            if (foot.y < -90) { foot.state = 'gone'; foot.wait = rnd(0.3, 0.7); }
+        } else if (foot.state === 'gone') {
+            foot.wait -= dt;
+            if (foot.wait <= 0) newFoot(false);
+        }
+    }
+
+    function updateFx(dt) {
+        for (var k = parts.length - 1; k >= 0; k--) {
+            var p = parts[k];
+            p.life -= dt;
+            p.x += p.vx * dt; p.y += p.vy * dt;
+            if (p.type === 'drop') p.vy += 700 * dt;
+            if (p.type === 'bubble' && p.y < WATER + 2) p.life = 0;
+            if (p.life <= 0) parts.splice(k, 1);
+        }
+        for (k = texts.length - 1; k >= 0; k--) {
+            texts[k].life -= dt * 0.9;
+            texts[k].y -= 30 * dt;
+            if (texts[k].life <= 0) texts.splice(k, 1);
+        }
+        for (k = 0; k < rain.length; k++) {
+            var r = rain[k];
+            r.y += r.sp * dt; r.x -= r.sp * 0.15 * dt;
+            if (r.y > WATER) { r.y = rnd(-30, 0); r.x = rnd(0, W + 60); }
+        }
+    }
+
+    /* ---------- leaderboard ---------- */
+    var LB_URL = 'leaderboard.php';
+    var lb = { ok: false, scores: [] };
+    var entering = false, lbMsg = '', myPlace = 0, afterSave = false;
+    var lbForm = document.getElementById('lbForm'), lbInput = document.getElementById('lbInitials');
+    var lbSave = document.getElementById('lbSave'), lbSkip = document.getElementById('lbSkip');
+    var lbFormMsg = document.getElementById('lbFormMsg');
+
+    function api(body) {
+        var opts = body ? { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(body) } : { cache: 'no-store' };
+        return fetch(LB_URL, opts).then(function (r) {
+            return r.json().then(function (j) {
+                if (!r.ok) throw new Error((j && j.error) || 'Something went wrong');
+                return j;
+            });
+        });
+    }
+
+    function loadBoard() {
+        api().then(function (j) { lb.ok = true; lb.scores = j.scores || []; })
+             .catch(function () { lb.ok = false; });
+    }
+
+    function qualifies() {
+        return lb.ok && score > 0 && (lb.scores.length < 10 || score > lb.scores[lb.scores.length - 1].s);
+    }
+
+    function showForm() {
+        entering = true;
+        lbForm.hidden = false;
+        lbInput.value = store.get('htf_ini') || '';
+        lbFormMsg.textContent = '';
+        lbSave.disabled = false;
+        var title = document.getElementById('lbFormTitle');
+        if (title) {
+            title.textContent = 'You made the leaderboard!';
+            var sub = document.createElement('span');
+            sub.textContent = score + ' Halftoberpoints \u00b7 Enter your initials';
+            title.appendChild(sub);
+        }
+        if (window.matchMedia && window.matchMedia('(pointer: fine)').matches) lbInput.focus();
+    }
+
+    function hideForm() {
+        entering = false;
+        lbForm.hidden = true;
+        stateT = 0.6;
+        try { cv.focus({ preventScroll: true }); } catch (err) {}
+    }
+
+    if (lbForm) {
+        lbInput.addEventListener('input', function () {
+            lbInput.value = lbInput.value.toUpperCase().replace(/[^A-Z]/g, '').slice(0, 3);
+        });
+        lbInput.addEventListener('keydown', function (e) { if (e.key === 'Escape') hideForm(); });
+        lbSkip.addEventListener('click', hideForm);
+        lbForm.addEventListener('submit', function (e) {
+            e.preventDefault();
+            var v = lbInput.value.toUpperCase().replace(/[^A-Z]/g, '');
+            if (v.length !== 3) { lbFormMsg.textContent = 'Three letters, please.'; return; }
+            lbSave.disabled = true;
+            lbFormMsg.textContent = '';
+            api({ initials: v, score: score }).then(function (j) {
+                lb.scores = j.scores || lb.scores;
+                store.set('htf_ini', v);
+                lbMsg = j.place ? v + ' is #' + j.place + ' on the leaderboard!' : 'Score saved!';
+                myPlace = j.place || 0;
+                hideForm();
+                openBoard(true);
+            }).catch(function (err) {
+                lbFormMsg.textContent = err.message;
+                lbSave.disabled = false;
+            });
+        });
+    }
+
+    function start() {
+        reset(); state = 'play'; stateT = 0; fish.cool = 0.15;
+        lbMsg = ''; myPlace = 0;
+        if (!lb.ok) loadBoard();
+    }
+
+    function end() {
+        state = 'over'; stateT = 0;
+        if (score > best) { best = score; newBest = true; store.set('htf_best', String(best)); }
+        sfx('end');
+        if (qualifies()) showForm();
+    }
+
+    var TITLES = {
+        5: 'Bait Nibbler',       6: 'Bullhead',          7: 'Mud Puppy',
+        8: 'Bottom Feeder',      9: 'Whisker Twitcher',  10: 'Toe Taster',
+        11: 'Ankle Biter',       12: 'Channel Cat',      13: 'Puddle Pirate',
+        14: 'Sock Snatcher',     15: 'Blue Cat',         16: 'Pinky Pincher',
+        17: 'Riverbed Bandit',   18: 'Barbed Brute',     19: 'Clio Creeper',
+        20: 'Flathead Terror',   21: 'Toenail Collector', 22: 'Heel Hunter',
+        23: 'Floodwater Fiend',  24: 'Mud Bank Menace',  25: 'Half-Toe Hero',
+        26: 'Sole Crusher',      27: 'Terror of Clio',   28: 'Riverboat Raider',
+        29: 'The Big Muddy',     30: 'Toe Tyrant',       31: 'Ghost of \'86',
+        32: 'Storm Surge',       33: 'King of the Current', 34: 'The Great Flood',
+        35: 'Legend of the Flint', 36: 'Catfish Kingpin',   37: 'Toe Thief of Clio',
+        38: 'Monster of the Deep', 39: 'Flood Lord',       40: 'Whiskered Warlord',
+        41: 'Riverbottom Royalty', 42: 'The Toe Reaper',   43: 'Leviathan of Flint',
+        44: 'Grand Barbel',      45: 'Ten-Toe Terror',   46: 'Wrath of \'86',
+        47: 'Mythical Mudcat',   48: 'Half-Toe Hall of Famer', 49: 'Almost Immortal',
+        50: 'Lord of Halftoberfest', 51: 'Duke of the Deluge', 52: 'Flint River Phantom',
+        53: 'Baron of Barbels',  54: 'Sultan of Silt',   55: 'Emperor of Mud',
+        56: 'Clio\'s Worst Nightmare', 57: 'The Unstoppable Maw', 58: 'Tidal Terror',
+        59: 'Whisker Wizard',    60: 'Archduke of Ankles', 61: 'Titan of the Current',
+        62: 'Dread of the Docks', 63: 'The Toe-pocalypse', 64: 'Catfish Colossus',
+        65: 'Supreme Sole Seeker', 66: 'Mythic Monster of \'86', 67: 'Overlord of the Flood',
+        68: 'Keeper of the Half-Toe', 69: 'Nearly Toe-mnipotent', 70: 'Toe God of the Flint'
+    };
+    function rank(s) {
+        if (s >= 70) return TITLES[70];
+        if (s >= 5) return TITLES[s];
+        if (s >= 1) return 'Minnow';
+        return 'Vegetarian';
+    }
+
+    /* ---------- drawing ---------- */
+    function ellipse(x, y, rx, ry, col) {
+        ctx.beginPath(); ctx.ellipse(x, y, rx, ry, 0, 0, Math.PI * 2); ctx.fillStyle = col; ctx.fill();
+    }
+
+    var SIL = '#0b131b';
+    function limb(x1, y1, x2, y2, w) {
+        ctx.lineWidth = w; ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2); ctx.stroke();
+    }
+    function headAt(x, y, r) { ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.fill(); }
+    function wheel(x, y, r, w) { ctx.lineWidth = w; ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI * 2); ctx.stroke(); }
+
+    // Brother pulling his sister out of the flood
+    function drawSiblings(x) {
+        var g = WATER, bob = Math.sin(t * 2.2) * 2, pull = Math.sin(t * 2.2) * 1.5;
+        ctx.save();
+        ctx.fillStyle = SIL; ctx.strokeStyle = SIL; ctx.lineCap = 'round';
+        // brother, waist deep, leaning back as he pulls
+        limb(x, g + 2, x - 6, g - 28, 11);
+        headAt(x - 7, g - 38, 7.5);
+        limb(x - 4, g - 23, x + 17, g - 17 + pull, 4.5);
+        limb(x - 3, g - 18, x + 16, g - 13 + pull, 4.5);
+        // sister, shoulders out of the water, arms up to him
+        limb(x + 30, g + 3, x + 29, g - 8 + bob, 9);
+        ctx.beginPath(); ctx.ellipse(x + 34, g - 12 + bob, 4.5, 9, 0.25, 0, Math.PI * 2); ctx.fill();
+        headAt(x + 30, g - 18 + bob, 6.5);
+        limb(x + 27, g - 9 + bob, x + 18, g - 16 + pull, 4);
+        limb(x + 29, g - 7 + bob, x + 17, g - 12 + pull, 4);
+        ctx.restore();
+        // ripples and splashes around her
+        ctx.save();
+        ctx.strokeStyle = 'rgba(210, 230, 240, 0.6)'; ctx.lineWidth = 1.5;
+        for (var k = 0; k < 2; k++) {
+            var ph = ((t * 10 + k * 8) % 16) / 16;
+            ctx.globalAlpha = 1 - ph;
+            ctx.beginPath(); ctx.ellipse(x + 30, g + 1, 10 + ph * 16, (10 + ph * 16) * 0.22, 0, Math.PI, Math.PI * 2); ctx.stroke();
+        }
+        ctx.globalAlpha = 1;
+        ctx.fillStyle = 'rgba(210, 230, 240, 0.7)';
+        for (k = 0; k < 4; k++) {
+            var q = (t * 1.6 + k / 4) % 1;
+            ctx.beginPath(); ctx.arc(x + 30 + (k - 1.5) * 9 * q, g - Math.sin(q * Math.PI) * 12, 1.6, 0, Math.PI * 2); ctx.fill();
+        }
+        ctx.restore();
+    }
+
+    // Father and son on a motorcycle, splashing through the flood
+    function drawBike() {
+        var g = WATER - 2, bounce = Math.abs(Math.sin(t * 9)) * 1.2;
+        ctx.save();
+        ctx.translate(bike.x, g - bounce);
+        ctx.scale(bike.dir, 1);
+        ctx.fillStyle = SIL; ctx.strokeStyle = SIL; ctx.lineCap = 'round'; ctx.lineJoin = 'round';
+        wheel(-18, -9, 8, 4.5);
+        wheel(19, -9, 8, 4.5);
+        headAt(-18, -9, 2.5); headAt(19, -9, 2.5);
+        ctx.fillRect(-7, -16, 15, 9);
+        ctx.beginPath();
+        ctx.moveTo(-16, -16); ctx.lineTo(-11, -23); ctx.lineTo(9, -24); ctx.lineTo(15, -18); ctx.lineTo(9, -14); ctx.lineTo(-14, -14);
+        ctx.closePath(); ctx.fill();
+        limb(-9, -11, -26, -13, 3.5);
+        limb(19, -9, 13, -28, 4);
+        limb(10, -29, 18, -30, 3);
+        headAt(17, -22, 3);
+        ctx.beginPath(); ctx.arc(-18, -9, 11, Math.PI * 1.1, Math.PI * 1.6); ctx.lineWidth = 3; ctx.stroke();
+        // dad, leaning into the ride
+        limb(-3, -24, 3, -42, 9);
+        headAt(4, -49, 6.8);
+        limb(3, -38, 15, -29, 4);
+        limb(-2, -23, 9, -18, 5);
+        limb(9, -18, 7, -10, 4.5);
+        // son, hanging on behind
+        limb(-14, -23, -12, -36, 7);
+        headAt(-11, -42, 5.2);
+        limb(-11, -33, 1, -35, 3.5);
+        limb(-14, -23, -7, -16, 4);
+        ctx.restore();
+        // rooster tail of spray, thrown up and back off the rear wheel
+        for (var k = 0; k < spray.length; k++) {
+            var d = spray[k];
+            ctx.fillStyle = 'rgba(210, 230, 240, ' + (0.75 * Math.min(1, d.life * 2)) + ')';
+            ctx.beginPath(); ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2); ctx.fill();
+        }
+    }
+
+    // A boy mowing the lawn on a riding tractor, high and dry on the hill
+    var HILL_Y = 90;
+    function hillY(x) { return HILL_Y - (x - 650) * 0.01; }
+    function drawHill() {
+        ctx.fillStyle = '#1b2e22';
+        ctx.beginPath();
+        ctx.moveTo(590, WATER + 2);
+        ctx.quadraticCurveTo(612, HILL_Y + 2, 650, HILL_Y);
+        ctx.lineTo(W + 20, hillY(W + 20));
+        ctx.lineTo(W + 20, WATER + 2);
+        ctx.closePath(); ctx.fill();
+        ctx.fillStyle = 'rgba(120, 170, 110, 0.35)';
+        for (var x = 650; x < W; x += 22) ctx.fillRect(x, hillY(x), 11, 3);
+    }
+    function drawMower() {
+        var g = hillY(mower.x), jig = Math.sin(t * 14) * 0.6;
+        ctx.save();
+        ctx.translate(mower.x, g + jig);
+        ctx.scale(mower.dir, 1);
+        ctx.fillStyle = SIL; ctx.strokeStyle = SIL; ctx.lineCap = 'round';
+        wheel(-9, -8, 7, 3.5); headAt(-9, -8, 2.5);
+        wheel(15, -4, 4, 2.5);
+        ctx.fillRect(-1, -4, 16, 3);
+        ctx.fillRect(-15, -15, 33, 6);
+        ctx.beginPath(); ctx.moveTo(2, -14); ctx.lineTo(2, -21); ctx.lineTo(15, -19); ctx.lineTo(20, -13); ctx.closePath(); ctx.fill();
+        ctx.fillRect(-17, -25, 4, 11);
+        ctx.fillRect(-15, -17, 10, 3);
+        limb(4, -20, 0, -28, 2);
+        limb(-3, -29, 4, -27, 2.5);
+        // the boy, in a ball cap
+        limb(-10, -17, -9, -31, 6.5);
+        headAt(-8, -36, 5);
+        ctx.beginPath(); ctx.arc(-8, -37, 5.4, Math.PI, Math.PI * 2); ctx.fill();
+        limb(-8, -40, 1, -39, 2.5);
+        limb(-8, -28, 0, -28, 3);
+        limb(-9, -17, 2, -15, 4);
+        limb(2, -15, 3, -9, 3.5);
+        ctx.restore();
+        ctx.fillStyle = 'rgba(140, 190, 120, 0.7)';
+        for (var k = 0; k < clippings.length; k++) ctx.fillRect(clippings[k].x, clippings[k].y, 2, 2);
+    }
+
+    function drawSign() {
+        var cx = 748, base = hillY(cx), bw = 92, bh = 24, top = base - 46;
+        ctx.save();
+        ctx.fillStyle = '#2a1d12';
+        ctx.fillRect(cx - 34, top + 4, 5, base - top - 4);
+        ctx.fillRect(cx + 29, top + 4, 5, base - top - 4);
+        ctx.fillStyle = '#5c4129';
+        ctx.fillRect(cx - bw / 2, top, bw, bh);
+        ctx.strokeStyle = '#3a2817'; ctx.lineWidth = 2;
+        ctx.strokeRect(cx - bw / 2 + 1, top + 1, bw - 2, bh - 2);
+        ctx.font = 'bold 15px Georgia, serif';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#f1e4c4';
+        ctx.fillText('Flint River', cx, top + 17);
+        ctx.restore();
+    }
+
+    function drawScenes() {
+        drawHill();
+        drawSign();
+        drawSiblings(392);
+        drawBike();
+        drawMower();
+    }
+
+    function updateScenes(dt) {
+        bike.x += bike.dir * 38 * dt;
+        if (bike.x > 270) { bike.x = 270; bike.dir = -1; }
+        if (bike.x < 40) { bike.x = 40; bike.dir = 1; }
+        if (Math.random() < dt * 40) {
+            spray.push({ x: bike.x - bike.dir * 22, y: WATER - 6, vx: -bike.dir * rnd(50, 110), vy: rnd(-120, -70), r: rnd(1.2, 2.6), life: 1 });
+        }
+        for (var q = spray.length - 1; q >= 0; q--) {
+            var sp = spray[q];
+            sp.x += sp.vx * dt; sp.y += sp.vy * dt; sp.vy += 320 * dt; sp.life -= dt * 1.2;
+            if (sp.y > WATER || sp.life <= 0) spray.splice(q, 1);
+        }
+        mower.x += mower.dir * 16 * dt;
+        if (mower.x > 712) { mower.x = 712; mower.dir = -1; }
+        if (mower.x < 648) { mower.x = 648; mower.dir = 1; }
+        if (Math.random() < dt * 14) {
+            clippings.push({ x: mower.x - mower.dir * 14, y: hillY(mower.x) - 4, vx: -mower.dir * rnd(10, 30), vy: rnd(-30, -10), life: 0.6 });
+        }
+        for (var k = clippings.length - 1; k >= 0; k--) {
+            var c = clippings[k];
+            c.life -= dt; c.x += c.vx * dt; c.y += c.vy * dt; c.vy += 80 * dt;
+            if (c.life <= 0) clippings.splice(k, 1);
+        }
+    }
+
+    function drawBackground() {
+        var g = ctx.createLinearGradient(0, 0, 0, WATER);
+        g.addColorStop(0, '#1b2a3a'); g.addColorStop(1, '#4d6478');
+        ctx.fillStyle = g; ctx.fillRect(-20, -20, W + 40, WATER + 22);
+
+        ctx.fillStyle = '#26384a';
+        for (var k = 0; k < houses.length; k++) {
+            var h = houses[k], top = WATER - h[2];
+            ctx.fillRect(h[0], top, h[1], h[2]);
+            ctx.beginPath(); ctx.moveTo(h[0] - 6, top); ctx.lineTo(h[0] + h[1] / 2, top - 22); ctx.lineTo(h[0] + h[1] + 6, top); ctx.fill();
+        }
+        ctx.fillStyle = 'rgba(255, 214, 120, 0.55)';
+        ctx.fillRect(houses[1][0] + 14, WATER - 40, 10, 10);
+        ctx.fillRect(houses[4][0] + 36, WATER - 40, 10, 10);
+        drawScenes();
+
+        ctx.strokeStyle = 'rgba(200, 220, 240, 0.35)'; ctx.lineWidth = 1;
+        ctx.beginPath();
+        for (k = 0; k < rain.length; k++) { var r = rain[k]; ctx.moveTo(r.x, r.y); ctx.lineTo(r.x - r.len * 0.15, r.y + r.len); }
+        ctx.stroke();
+
+        g = ctx.createLinearGradient(0, WATER, 0, H);
+        g.addColorStop(0, '#5b7a63'); g.addColorStop(1, '#1c2a22');
+        ctx.fillStyle = g; ctx.fillRect(-20, WATER, W + 40, H - WATER + 20);
+
+        ctx.fillStyle = '#2a2a1e'; ctx.fillRect(-20, H - 10, W + 40, 30);
+        ctx.strokeStyle = '#2f4a30'; ctx.lineWidth = 3; ctx.lineCap = 'round';
+        for (k = 0; k < weeds.length; k++) {
+            var wd = weeds[k], sw = Math.sin(t * 1.5 + wd.ph) * 8;
+            ctx.beginPath(); ctx.moveTo(wd.x, H - 6);
+            ctx.quadraticCurveTo(wd.x + sw, H - wd.h / 2, wd.x + sw * 1.6, H - wd.h); ctx.stroke();
+        }
+    }
+
+    function drawFoot() {
+        if (foot.state === 'gone') return;
+        var x = foot.x, y = foot.y, d = foot.dir;
+        var glow = foot.gold ? 0.5 + 0.5 * Math.sin(t * 8) : 0;
+        var skin = foot.gold ? '#e9c45c' : '#e7b08c', shade = foot.gold ? '#b48a25' : '#c78a68';
+
+        ctx.fillStyle = skin;
+        ctx.fillRect(x - 15, -60, 30, y + 50);
+        ctx.fillStyle = '#3b5b8c';
+        var cuff = Math.min(WATER - 30, y - 40);
+        ctx.fillRect(x - 20, -60, 40, cuff + 60);
+        ctx.fillStyle = '#2f4b75'; ctx.fillRect(x - 21, cuff - 8, 42, 10);
+
+        ellipse(x + d * 10, y, 38, 15, skin);
+        ellipse(x - d * 16, y + 3, 14, 11, shade);
+        var toes = [[38, -9, 6], [31, -12, 5.5], [24, -14, 5], [17, -15, 4.5]];
+        for (var k = 0; k < toes.length; k++) ellipse(x + d * toes[k][0], y + toes[k][1], toes[k][2], toes[k][2], skin);
+        if (foot.gold) {
+            ctx.save(); ctx.shadowColor = '#ffe27a'; ctx.shadowBlur = 12 + glow * 14;
+            ellipse(x + d * 44, y + 2, foot.chewed ? 5 : 10, foot.chewed ? 5 : 10, '#ffd54a');
+            ctx.restore();
+        } else {
+            ellipse(x + d * 44, y + 2, foot.chewed ? 5 : 10, foot.chewed ? 5 : 10, skin);
+        }
+        if (!foot.chewed) ellipse(x + d * 47, y - 1, 4, 3, 'rgba(255,255,255,0.55)');
+    }
+
+    function drawFish() {
+        var f = fish, sp = Math.hypot(f.vx, f.vy);
+        var wag = Math.sin(t * (6 + sp * 0.03)) * (4 + sp * 0.02);
+        ctx.save();
+        ctx.translate(f.x, f.y);
+        ctx.scale(f.face * 1.35, 1.35);
+
+        ctx.fillStyle = '#353a2e';
+        ctx.beginPath(); ctx.moveTo(-40, 0); ctx.lineTo(-74, -20 + wag); ctx.lineTo(-64, wag * 0.5); ctx.lineTo(-74, 20 + wag); ctx.closePath(); ctx.fill();
+        ctx.beginPath(); ctx.moveTo(-6, -16); ctx.lineTo(6, -32); ctx.lineTo(16, -16); ctx.closePath(); ctx.fill();
+
+        ellipse(-4, 0, 46, 18, '#3f4537');
+        ellipse(22, 2, 26, 19, '#454b3c');
+        ellipse(4, 9, 38, 8, '#8d8c72');
+        ctx.fillStyle = '#353a2e';
+        ctx.beginPath(); ctx.moveTo(6, 10); ctx.lineTo(-8, 24 + wag * 0.4); ctx.lineTo(16, 14); ctx.closePath(); ctx.fill();
+
+        ellipse(30, -6, 4.5, 4.5, '#d9cf8f');
+        ellipse(31, -6, 2.2, 2.6, '#111');
+
+        var mo = f.mouth;
+        if (mo > 0.08) {
+            ctx.fillStyle = '#1a1a12';
+            ctx.beginPath(); ctx.moveTo(32, 5); ctx.lineTo(50, 4 - mo * 12); ctx.lineTo(50, 6 + mo * 14); ctx.closePath(); ctx.fill();
+            ctx.fillStyle = '#f2efe0';
+            for (var k = 0; k < 3; k++) {
+                var tx = 38 + k * 4;
+                ctx.beginPath(); ctx.moveTo(tx, 4 - mo * (3 + k * 3)); ctx.lineTo(tx + 2, 4 - mo * (3 + k * 3) + 4); ctx.lineTo(tx + 4, 4 - mo * (3 + k * 3)); ctx.fill();
+            }
+        } else {
+            ctx.strokeStyle = '#1a1a12'; ctx.lineWidth = 2;
+            ctx.beginPath(); ctx.moveTo(36, 6); ctx.lineTo(48, 5); ctx.stroke();
+        }
+
+        ctx.strokeStyle = '#23271d'; ctx.lineWidth = 2; ctx.lineCap = 'round';
+        var wb = Math.sin(t * 4) * 4;
+        var barbels = [[44, 2, 66, -12 + wb], [44, 4, 70, 4 - wb], [42, 8, 60, 22 + wb], [40, 9, 52, 26 - wb]];
+        for (k = 0; k < barbels.length; k++) {
+            var b = barbels[k];
+            ctx.beginPath(); ctx.moveTo(b[0], b[1]); ctx.quadraticCurveTo((b[0] + b[2]) / 2 + 4, b[1], b[2], b[3]); ctx.stroke();
+        }
+        ctx.restore();
+    }
+
+    function drawWaterSurface() {
+        ctx.fillStyle = 'rgba(28, 55, 45, 0.35)';
+        ctx.fillRect(-20, WATER, W + 40, H - WATER + 20);
+        ctx.fillStyle = 'rgba(190, 215, 220, 0.45)';
+        ctx.beginPath(); ctx.moveTo(-20, WATER + 6);
+        for (var x = -20; x <= W + 20; x += 10) ctx.lineTo(x, WATER + Math.sin(x * 0.03 + t * 2) * 3);
+        ctx.lineTo(W + 20, WATER + 6); ctx.closePath(); ctx.fill();
+    }
+
+    function drawFx() {
+        for (var k = 0; k < parts.length; k++) {
+            var p = parts[k], a = clamp(p.life / p.max, 0, 1);
+            if (p.type === 'bubble') {
+                ctx.strokeStyle = 'rgba(220,240,240,' + (0.6 * a) + ')'; ctx.lineWidth = 1;
+                ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2); ctx.stroke();
+            } else if (p.type === 'drop') {
+                ellipse(p.x, p.y, p.r, p.r, 'rgba(210,230,240,' + a + ')');
+            } else {
+                ellipse(p.x, p.y, p.r, p.r, p.gold ? 'rgba(255,213,74,' + a + ')' : 'rgba(255,240,200,' + a + ')');
+            }
+        }
+        ctx.textAlign = 'center';
+        for (k = 0; k < texts.length; k++) {
+            var tx = texts[k];
+            ctx.globalAlpha = clamp(tx.life * 1.5, 0, 1);
+            ctx.font = 'bold ' + Math.round(22 * tx.scale) + 'px Georgia, serif';
+            ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(0,0,0,0.55)';
+            ctx.strokeText(tx.txt, tx.x, tx.y);
+            ctx.fillStyle = tx.col; ctx.fillText(tx.txt, tx.x, tx.y);
+        }
+        ctx.globalAlpha = 1;
+    }
+
+    function label(txt, x, y, size, col, align) {
+        ctx.font = 'bold ' + size + 'px Georgia, serif';
+        ctx.textAlign = align || 'center';
+        ctx.lineWidth = 4; ctx.strokeStyle = 'rgba(0,0,0,0.5)';
+        ctx.strokeText(txt, x, y);
+        ctx.fillStyle = col || '#fff'; ctx.fillText(txt, x, y);
+    }
+
+    function drawHud() {
+        label('Halftoberpoints: ' + score, 20, 38, 26, '#fff', 'left');
+        var s = Math.ceil(timeLeft);
+        label('0:' + (s < 10 ? '0' : '') + s, W - 20, 38, 26, timeLeft < 5 && Math.sin(t * 12) > 0 ? '#ff8a6b' : '#fff', 'right');
+        if (combo >= 3) label('Combo x' + (combo >= 6 ? 3 : 2), 20, 70, 20, '#c7a23f', 'left');
+    }
+
+    var BTN = { x: W / 2 - 105, y: 388, w: 210, h: 42 };
+    var btnHover = false;
+    function onButton(p) { return p.x >= BTN.x && p.x <= BTN.x + BTN.w && p.y >= BTN.y && p.y <= BTN.y + BTN.h; }
+    function buttonShowing() { return state === 'title' || (state === 'over' && !entering && stateT > 1); }
+
+    function drawBoardButton() {
+        ctx.beginPath();
+        if (ctx.roundRect) ctx.roundRect(BTN.x, BTN.y, BTN.w, BTN.h, 21); else ctx.rect(BTN.x, BTN.y, BTN.w, BTN.h);
+        ctx.fillStyle = btnHover ? '#d8b552' : '#c7a23f';
+        ctx.fill();
+        ctx.font = 'bold 20px Georgia, serif';
+        ctx.textAlign = 'center';
+        ctx.fillStyle = '#fff';
+        ctx.fillText('Leaderboard', W / 2, BTN.y + 28);
+    }
+
+    function drawBoard() {
+        label('Leaderboard', W / 2, 56, 34, '#c7a23f');
+        if (!lb.ok || !lb.scores.length) {
+            label(lb.ok ? 'No scores yet. Be the first legend.' : 'The leaderboard is resting right now.', W / 2, 220, 24, '#dfe7ee');
+        } else {
+            label('#', 190, 98, 15, '#9fb0bf', 'right');
+            label('INITIALS', 210, 98, 15, '#9fb0bf', 'left');
+            label('RANK', 330, 98, 15, '#9fb0bf', 'left');
+            label('HALFTOBERPOINTS', 620, 98, 15, '#9fb0bf', 'right');
+            for (var k = 0; k < lb.scores.length; k++) {
+                var s = lb.scores[k], y = 132 + k * 28;
+                var col = k === 0 ? '#ffd54a' : '#ffffff';
+                if (myPlace && k === myPlace - 1) {
+                    ctx.fillStyle = 'rgba(199, 162, 63, ' + (0.28 + 0.12 * Math.sin(t * 4)) + ')';
+                    ctx.fillRect(160, y - 21, 480, 27);
+                }
+                label((k + 1) + '.', 190, y, 22, k === 0 ? '#ffd54a' : '#9fb0bf', 'right');
+                label(s.i.split('').join(' '), 210, y, 22, col, 'left');
+                label(rank(s.s), 330, y, 19, k === 0 ? '#ffd54a' : '#dfe7ee', 'left');
+                label(String(s.s), 620, y, 22, col, 'right');
+            }
+        }
+        if (afterSave) {
+            if (stateT > 0.8) label('Tap to play again', W / 2, 432, 22, Math.sin(t * 4) > -0.3 ? '#ffffff' : '#c7a23f');
+        } else {
+            label('Tap anywhere to go back', W / 2, 432, 18, Math.sin(t * 3) > -0.3 ? '#dfe7ee' : '#c7a23f');
+        }
+    }
+
+    function openBoard(justSaved) {
+        afterSave = !!justSaved;
+        boardFrom = state;
+        state = 'board';
+        stateT = 0;
+        if (!afterSave) loadBoard();
+    }
+    var boardFrom = 'title';
+
+    function drawOverlay() {
+        ctx.fillStyle = 'rgba(15, 30, 45, 0.62)';
+        ctx.fillRect(0, 0, W, H);
+        if (state === 'title') {
+            label("STRIKE OF '86", W / 2, 140, 54, '#c7a23f');
+            label('You are the catfish. Bite the toe. Earn Halftoberpoints.', W / 2, 192, 24);
+            label('Swim: mouse, drag or arrow keys', W / 2, 250, 20, '#dfe7ee');
+            label('Bite: click, tap or space', W / 2, 280, 20, '#dfe7ee');
+            label('Bites buy extra time. Golden toes pay triple.', W / 2, 310, 18, '#dfe7ee');
+            label('Tap to start', W / 2, 360, 30, Math.sin(t * 4) > -0.3 ? '#fff' : '#c7a23f');
+            if (best) label('Your best: ' + best, W - 20, 34, 18, '#c7a23f', 'right');
+            drawBoardButton();
+        } else if (state === 'board') {
+            drawBoard();
+        } else {
+            var pts = score + (score === 1 ? ' Halftoberpoint' : ' Halftoberpoints');
+            if (entering) {
+                label('TIME!', W / 2, 70, 44, '#c7a23f');
+                label(pts, W / 2, 125, 36);
+                label('Rank: ' + rank(score), W / 2, 165, 22, '#dfe7ee');
+                label('You made the leaderboard! Enter your initials:', W / 2, 215, 22, '#ffd54a');
+            } else {
+                label('TIME!', W / 2, 100, 50, '#c7a23f');
+                label(pts, W / 2, 162, 38);
+                label('Rank: ' + rank(score), W / 2, 210, 26, '#dfe7ee');
+                label(newBest ? 'New personal record!' : 'Best: ' + best, W / 2, 252, 22, newBest ? '#ffd54a' : '#c7a23f');
+                if (lbMsg) label(lbMsg, W / 2, 295, 22, '#ffd54a');
+                if (stateT > 1) {
+                    label('Tap to play again', W / 2, 360, 30, Math.sin(t * 4) > -0.3 ? '#fff' : '#c7a23f');
+                    drawBoardButton();
+                }
+            }
+        }
+    }
+
+    function draw() {
+        ctx.save();
+        if (shake > 0) ctx.translate(rnd(-1, 1) * shake * 18, rnd(-1, 1) * shake * 18);
+        drawBackground();
+        drawFoot();
+        drawWaterSurface();
+        drawFish();
+        drawFx();
+        ctx.restore();
+        if (state === 'play') drawHud(); else drawOverlay();
+    }
+
+    /* ---------- loop ---------- */
+    var visible = true;
+    if ('IntersectionObserver' in window) {
+        new IntersectionObserver(function (e) { visible = e[0].isIntersecting; }).observe(cv);
+    }
+    var last = performance.now();
+    function frame(now) {
+        var dt = Math.min(0.05, (now - last) / 1000);
+        last = now;
+        if (visible) {
+            t += dt; stateT += dt;
+            if (state === 'play') {
+                timeLeft -= dt;
+                updateFish(dt, true);
+                updateFoot(dt);
+                if (timeLeft <= 0) { timeLeft = 0; end(); }
+            } else {
+                target.x = W / 2 + Math.cos(t * 0.6) * 260;
+                target.y = 300 + Math.sin(t * 1.2) * 70;
+                updateFish(dt, false);
+                updateFoot(dt);
+            }
+            shake = Math.max(0, shake - dt);
+            updateScenes(dt);
+            updateFx(dt);
+            draw();
+        }
+        requestAnimationFrame(frame);
+    }
+
+    /* ---------- input ---------- */
+    function toLogical(e) {
+        var r = cv.getBoundingClientRect();
+        return { x: (e.clientX - r.left) / r.width * W, y: (e.clientY - r.top) / r.height * H };
+    }
+    function press() {
+        if (state === 'board') {
+            if (afterSave) { if (stateT > 0.8) { afterSave = false; start(); } }
+            else { state = boardFrom; stateT = 2; }
+        }
+        else if (state === 'title') start();
+        else if (state === 'over') { if (!entering && stateT > 1) start(); }
+        else lunge();
+    }
+    cv.addEventListener('pointermove', function (e) {
+        var p = toLogical(e);
+        if (e.pointerType === 'mouse') touchMode = false;
+        if (state !== 'play') {
+            btnHover = buttonShowing() && onButton(p);
+            cv.style.cursor = btnHover || state === 'board' ? 'pointer' : (state === 'play' ? 'crosshair' : 'pointer');
+            return;
+        }
+        cv.style.cursor = 'crosshair';
+        target.x = p.x; target.y = p.y; usingKeys = false;
+    });
+    cv.addEventListener('pointerdown', function (e) {
+        e.preventDefault();
+        try { cv.focus({ preventScroll: true }); } catch (err) { cv.focus(); }
+        initAudio();
+        touchMode = e.pointerType !== 'mouse';
+        var p = toLogical(e);
+        if (state === 'play') {
+            target.x = p.x; target.y = p.y; usingKeys = false;
+        }
+        if (buttonShowing() && onButton(p)) { btnHover = false; openBoard(); return; }
+        press();
+    });
+    var gameKeys = ['l', 'L', ' ', 'Enter', 'ArrowUp', 'ArrowDown', 'ArrowLeft', 'ArrowRight', 'w', 'a', 's', 'd'];
+    cv.addEventListener('keydown', function (e) {
+        if (gameKeys.indexOf(e.key) < 0) return;
+        e.preventDefault();
+        if (e.key === 'l' || e.key === 'L') { if (buttonShowing()) openBoard(); else if (state === 'board') press(); return; }
+        if (e.key === ' ' || e.key === 'Enter') { if (!e.repeat) { initAudio(); press(); } return; }
+        keys[e.key] = true; usingKeys = true;
+    });
+    cv.addEventListener('keyup', function (e) {
+        keys[e.key] = false;
+        if (!(keys.ArrowUp || keys.ArrowDown || keys.ArrowLeft || keys.ArrowRight || keys.w || keys.a || keys.s || keys.d)) {
+            target.x = fish.x; target.y = fish.y;
+        }
+    });
+    cv.addEventListener('blur', function () { keys = {}; });
+
+    reset();
+    loadBoard();
+    requestAnimationFrame(frame);
+})();
+</script>
+
+</body>
+</html>
